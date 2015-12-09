@@ -9,6 +9,6 @@ logs default write log to stdout. when user set the path of file, auto write log
 logs support INFO,DEBUG,WARING,ERROR,FATAL.when the level is FATAL, writing log will exit current run program.
 1.for example(write to stdout)
 logs.Debug("write to stdout")
-2. write to file
+2. write to file.
 logs.LogSetFilePath("log.txt")
 logs.Debug("write to file")
