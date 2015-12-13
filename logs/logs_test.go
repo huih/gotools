@@ -5,11 +5,11 @@ import (
 )
 
 func TestLogSetLevel(t *testing.T){
-	LogSetLevel(LOG_INFO)
+	SetLevel(LOG_INFO)
 }
 
 func TestLogWriteToFile(t *testing.T) {
-	LogSetFilePath("D:\\work\\log.txt")
+	SetFilePath("D:\\work\\log.txt")
 	Info("hello web spider log file")
 	Info("hello web spider log file")
 }

@@ -1,4 +1,4 @@
-//Copyright 2015 huan ghui. All rights reserved.
+//Copyright 2015 huih. All rights reserved.
 package logs
 
 import(
@@ -60,16 +60,18 @@ outputType:LOG_OUTPUT_STDOUT, outputHandle:nil, useprefix:true}
 var fileSeqIndex = 1 
 
 //set level
-func LogSetLevel(level int){
+func SetLevel(level int){
 	localLog.level = level
 }
 
-func LogSetUsePrefix(useprefix bool) {
+//when true: log style like: 20151213 file.go debug: xxxxx;
+//when false: log style linke: xxxxx;
+func SetUsePrefix(useprefix bool) {
 	localLog.useprefix = useprefix
 }
 
 //set filename, for example c:/logs/log.txt
-func LogSetFilePath(logPath string){
+func SetFilePath(logPath string){
 	
 	//set directory and file name
 	d, f := path.Split(logPath)
@@ -91,15 +93,23 @@ func LogSetFilePath(logPath string){
 	resetExtendName()
 }
 
-func LogSetFileMaxSize(maxSize int) {
+//when write log to file, set file size.
+//default the file size is 5M
+func SetFileMaxSize(maxSize int) {
 	localLog.file.maxSize = maxSize
 }
 
-func LogSetOutputType(outType int) {
+//LOG_OUTPUT_STDOUT: write log to stdout;
+//LOG_OUTPUT_FILE: write log to file. when no file name, write log to stdout
+func SetOutputType(outType int) {
 	localLog.outputType = outType
 }
 
-func LogSetFileExtendType(extendType int) {
+//when write data to file, file can set file extendType. 
+//LOG_EXTEND_SEQUENCE: use sequence as file extendType. for example: log_1.txt;
+//LOG_EXTEND_DATETIME: use datetime as file extendType. for example: log_20151213184812.txt;
+//LOG_EXTEND_NULL: no file extendType. for example: log.txt;
+func SetFileExtendType(extendType int) {
 	localLog.file.extendType = extendType
 	resetExtendName()
 }

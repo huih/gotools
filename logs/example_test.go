@@ -1,11 +1,11 @@
 package logs_test
 
-import(
-	"logs"
+import (
+	"github.com/gotools/logs"
 )
 
 func ExampleLog(){
-	logs.LogSetFilePath("D:\\work\\log.txt")
+	logs.SetFilePath("D:\\work\\log.txt")
 	logs.Info("hello web spider log file: %s", "info")
 	logs.Debug("hello web spider log file: %s", "debug")
 	logs.Warning("hello web spider log file: %s", "warning")
