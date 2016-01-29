@@ -263,3 +263,39 @@ func Fatal(format string, v ...interface{}){
 		os.Exit(1)
 	}
 }
+
+func InfoS(v ...interface{}) {
+	if info() {
+		data := fmt.Sprint(v)
+		output("[info]>> ", "%s", data)
+	}
+}
+
+func DebugS(v ...interface{}) {
+	if debug(){
+		data := fmt.Sprint(v)
+		output("[debug]>> ", "%s", data)
+	}
+}
+
+func WarningS(v ...interface{}){
+	if warning() {
+		data := fmt.Sprint(v)
+		output("[warning]>> ", "%s", data)
+	}
+}
+
+func ErrorS(v ...interface{}){
+	if logserror() {
+		data := fmt.Sprint(v)
+		output("[error]>> ", "%s", data)
+	}
+}
+
+func FatalS(v ...interface{}){
+	if fatal() {
+		data := fmt.Sprint(v)
+		output("[fatal]>> ", "%s", data)
+		os.Exit(1)
+	}
+}

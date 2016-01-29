@@ -68,3 +68,24 @@ func (db *PGDB) ConnDB() (*sql.DB, error) {
 	
 	return db.db, err
 }
+
+func (db *PGDB) ReadData(sql string) (rows *sql.Rows, error) {
+	rows, err := db.db.Query(sql)
+	if err != nil {
+		return nil, err
+	}
+	
+	return rows, nil
+}
+
+func (db *PGDB) WriteData(sql string) (err error) {
+	db, err := OpenDB()
+	if err != nil {
+		return err
+	}
+	
+	defer db.Close()
+	_, err = db.Exec(sql)
+	
+	return err
+}

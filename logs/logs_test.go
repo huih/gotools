@@ -21,3 +21,7 @@ func TestLogWriteToStdOut(t *testing.T) {
 func BenchmarkLogInfo(b *testing.B) {
 	Info("write log to stdout")
 }
+
+func TestLogSWriteToStdOut(t *testing.T) {
+	InfoS("write log to stdout")
+}
