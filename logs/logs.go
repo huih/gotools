@@ -266,35 +266,35 @@ func Fatal(format string, v ...interface{}){
 
 func InfoS(v ...interface{}) {
 	if info() {
-		data := fmt.Sprint(v)
+		data := fmt.Sprintln(v)
 		output("[info]>> ", "%s", data)
 	}
 }
 
 func DebugS(v ...interface{}) {
 	if debug(){
-		data := fmt.Sprint(v)
+		data := fmt.Sprintln(v)
 		output("[debug]>> ", "%s", data)
 	}
 }
 
 func WarningS(v ...interface{}){
 	if warning() {
-		data := fmt.Sprint(v)
+		data := fmt.Sprintln(v)
 		output("[warning]>> ", "%s", data)
 	}
 }
 
 func ErrorS(v ...interface{}){
 	if logserror() {
-		data := fmt.Sprint(v)
+		data := fmt.Sprintln(v)
 		output("[error]>> ", "%s", data)
 	}
 }
 
 func FatalS(v ...interface{}){
 	if fatal() {
-		data := fmt.Sprint(v)
+		data := fmt.Sprintln(v)
 		output("[fatal]>> ", "%s", data)
 		os.Exit(1)
 	}
