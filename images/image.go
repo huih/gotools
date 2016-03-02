@@ -20,8 +20,9 @@ func FilterImageUrl(imageUrlArray []string, subUrl string) []string{
 	return newImageUrlArray
 }
 
-func FindImagePathUseGoQuery(url string) []string {
-	query,_ := goquery.NewDocument(url)
+func FindImagePathUseGoQuery(content string) []string {
+	query,_ := goquery.NewDocumentFromReader(strings.NewReader(content))
+	
 	imgs := query.Find("img")
 	
 	var imageUrlArray []string
